@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs"
+     xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
+
+  <Package Name="DIMS Blinders"
+           Manufacturer="DIMS"
+           Version="1.0.0.0"
+           UpgradeCode="8E5F8A3D-1C4B-4E5F-9A2B-3D4E5F6A7B8C"
+           Scope="perUser">
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <Media Id="1" Cabinet="dims.cab" EmbedCab="yes" />
+
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="INSTALLFOLDER" Name="DIMS Blinders">
+        <Component Id="MainExecutable" Guid="A1B2C3D4-E5F6-7890-ABCD-EF1234567890">
+          <File Id="DIMSBlindersExe"
+                Source="..\publish\DIMSBlinders.exe"
+                KeyPath="yes" />
+
+          <!-- Start Menu Shortcut -->
+          <Shortcut Id="StartMenuShortcut"
+                    Directory="ProgramMenuFolder"
+                    Name="DIMS Blinders"
+                    Description="Monitor blinder utility for Star Citizen"
+                    WorkingDirectory="INSTALLFOLDER"
+                    Advertise="no" />
+
+          <!-- Desktop Shortcut -->
+          <Shortcut Id="DesktopShortcut"
+                    Directory="DesktopFolder"
+                    Name="DIMS Blinders"
+                    Description="Monitor blinder utility for Star Citizen"
+                    WorkingDirectory="INSTALLFOLDER"
+                    Advertise="no" />
+
+          <!-- Registry entry for uninstall info -->
+          <RegistryValue Root="HKCU"
+                         Key="Software\DIMS\DIMSBlinders"
+                         Name="Installed"
+                         Type="integer"
+                         Value="1"
+                         KeyPath="no" />
+        </Component>
+      </Directory>
+    </StandardDirectory>
+
+    <StandardDirectory Id="ProgramMenuFolder" />
+    <StandardDirectory Id="DesktopFolder" />
+
+    <Feature Id="ProductFeature" Title="DIMS Blinders" Level="1">
+      <ComponentRef Id="MainExecutable" />
+    </Feature>
+
+    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+
+    <WixVariable Id="WixUILicenseRtf" Value="License.rtf" />
+    <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp" />
+
+  </Package>
+</Wix>

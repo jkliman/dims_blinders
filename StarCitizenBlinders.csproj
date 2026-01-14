@@ -9,6 +9,17 @@
     <AssemblyName>DIMSBlinders</AssemblyName>
     <RootNamespace>StarCitizenBlinders</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Product>DIMS Blinders</Product>
+    <Company>DIMS</Company>
+    <Description>Monitor blinder utility for Star Citizen triple monitor setups</Description>
+    <Copyright>Copyright © 2025</Copyright>
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
   <ItemGroup>
