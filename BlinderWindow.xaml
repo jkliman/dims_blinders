@@ -1,0 +1,16 @@
+<Window x:Class="StarCitizenBlinders.BlinderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Blinder"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Topmost="True"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize"
+        ShowActivated="False"
+        Focusable="False">
+    <Grid>
+        <Rectangle x:Name="BlinderRect" Fill="Black"/>
+    </Grid>
+</Window>
